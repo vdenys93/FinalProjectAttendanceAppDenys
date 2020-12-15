@@ -12,18 +12,28 @@ Student class for general information of student
 class Student:
     # unimplemented constructor
     def __init__(self, lname, fname, id=900000000):
-        pass
+
+        # error handling for inputs
+        name_characters = set("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'-")
+        if not (name_characters.issuperset(lname) and name_characters.issuperset(fname)):
+            raise ValueError
+        if not isinstance(id, int):
+            raise ValueError
+        if not 900000000 <= id <= 900999999:
+            raise ValueError
+        self.last_name = lname
+        self.first_name = fname
+        self.id = id
 
     # display all parameters using str()
     def __str__(self):
-        pass
+        return str(self.id)+" "+ self.last_name + ", " + self.first_name
 
     # display all parameters using repr()
     def __repr__(self):
-        pass
+        return repr(self.id)+" "+ self.last_name + ", " + self.first_name
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    student = Student()
-    print(str(student))
+    pass
