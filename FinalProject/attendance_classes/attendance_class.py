@@ -62,11 +62,12 @@ class Attendance:
     def add_item(self, dict):
         self.attendance.update(dict)
 
-    # Create attendance list using dictionary
     def create_attendanceList(self):
-        list = "Today`s attendance:\n"
+        list = "Today`s attendance\n"
         for key, value in self.attendance.items():
             list += "{} - {}\n".format(key, value)
+            with open("attendanceList.txt", 'w', encoding='utf-8') as f:  # Writing to File
+                f.write(list)
         return print(list)
     # reset dictionary(removing info)
     def reset_attendanceList(self):
@@ -100,8 +101,11 @@ attendance2= Attendance(2,student2)
 attendance.add_item({attendance.student.first_name+" "+attendance.student.last_name: tdate})
 attendance2.add_item({attendance2.student.first_name+" "+attendance2.student.last_name: tdate})
 
+
 # displaying attendance list
 attendance.create_attendanceList()
+
+
 
 # removing objects
 del(attendance)
