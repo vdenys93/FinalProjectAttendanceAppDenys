@@ -1,6 +1,6 @@
 """
 Author:Viktoria Denys
-Program:dbms_connector.py
+Program:student_dbms.py
 
 """
 import sqlite3
